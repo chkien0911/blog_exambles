@@ -1,0 +1,18 @@
+﻿@model IEnumerable<AsyncPartialView.Controllers.Course>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Title</td>
+        </tr>
+    }
+
+</table>

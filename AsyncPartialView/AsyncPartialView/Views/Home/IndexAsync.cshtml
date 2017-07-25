@@ -1,0 +1,26 @@
+﻿@model AsyncPartialView.Controllers.Dashboard
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>User</h2>
+<div class="partial-content" data-url="@Url.Action("_GetUsers", "Home")">
+    Loading...
+</div>
+
+<h2>Course</h2>
+<div class="partial-content" data-url="@Url.Action("_GetCourses", "Home")">
+    Loading...
+</div>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".partial-content").each(function (index, item) {
+            var url = $(item).data("url");
+            if (url && url.length > 0) {
+                $(item).load(url);
+            }
+        })
+    })
+</script>
